@@ -4,11 +4,14 @@ from django.db import models
 from django.db import models
 
 class Doctor(models.Model):
+    SEX_CHOICES = ( ('M', 'Masculino'), ('F', 'Femenino'),)
     # Campo para el nombre del doctor (máximo 100 caracteres)
     first_name = models.CharField(max_length=100)
     
     # Campo para el apellido del doctor (máximo 100 caracteres)
     last_name = models.CharField(max_length=100)
+    
+    sex = models.CharField(default="M",max_length=1, choices=SEX_CHOICES)
     
     # Campo para la fecha de nacimiento del doctor
     birth_date = models.DateField()
